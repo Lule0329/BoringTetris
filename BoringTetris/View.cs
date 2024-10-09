@@ -2,6 +2,11 @@ namespace BoringTetris
 {
     public partial class View : Form
     {
+        public System.Drawing.Bitmap[] images =
+            {Properties.Resources.tetris_block_blue, Properties.Resources.tetris_block_cyan, 
+            Properties.Resources.tetris_block_green, 
+            Properties.Resources.tetris_block_light, Properties.Resources.tetris_block_orange, 
+            Properties.Resources.tetris_block_purple, Properties.Resources.tetris_block_red};
         public const int NUM_ROWS = 7;
         public const int NUM_COLS = 5;
 
@@ -26,7 +31,7 @@ namespace BoringTetris
         /// </summary>
         public void Set(int row, int col)
         {
-            set(row, col, Properties.Resources.tetris_block_green);
+            set(row, col, images[controller.colourNum]);
         }
 
         /// <summary>
@@ -135,6 +140,7 @@ namespace BoringTetris
         private void click(int row, int col)
         {
             controller.Click(row, col);
+            scoreLabel.Text = $"Score: {controller.GetScore()}";
         }
 
         /// <summary>
@@ -143,6 +149,7 @@ namespace BoringTetris
         private void buttonClear_Click(object sender, EventArgs e)
         {
             controller.Clear();
+            scoreLabel.Text = $"Score: {controller.GetScore()}";
         }
     }
 }

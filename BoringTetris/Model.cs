@@ -2,6 +2,11 @@
 {
     internal class Model
     {
+        public int colourNum;
+
+        // Score
+        private int score = 0;
+        
         // antal rader
         private int numRows;
 
@@ -33,6 +38,10 @@
         public void Set(int row, int col)
         {
             matrix[row, col] = true;
+            
+            Random random = new Random();
+            colourNum = random.Next(1, 7);
+
             clearAnyCompleteRows();
         }
 
@@ -45,6 +54,8 @@
             {
                 clearRow(row);
             }
+
+            score = 0;
         }
 
         /// <summary>
@@ -107,6 +118,13 @@
             {
                 matrix[row, col] = false;
             }
+
+            score++;
+        }
+
+        public int GetScore()
+        {
+            return score;
         }
     }
 }

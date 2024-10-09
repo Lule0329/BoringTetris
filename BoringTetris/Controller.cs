@@ -2,6 +2,7 @@
 {
     internal class Controller
     {
+        public int colourNum;
         private Model model;
         private View view;
 
@@ -21,6 +22,7 @@
         public void Click(int row, int col)
         {
             model.Set(row, col);
+            this.colourNum = model.colourNum;
             updateView();
         }
 
@@ -31,6 +33,11 @@
         {
             model.Clear();
             updateView();
+        }
+
+        public int GetScore()
+        {
+            return model.GetScore();
         }
 
         /// <summary>

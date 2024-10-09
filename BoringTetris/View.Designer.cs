@@ -66,6 +66,7 @@ namespace BoringTetris
             pic6_3 = new PictureBox();
             pic6_4 = new PictureBox();
             pic6_0 = new PictureBox();
+            scoreLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)pic0_0).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic0_4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic0_3).BeginInit();
@@ -498,11 +499,22 @@ namespace BoringTetris
             pic6_0.TabStop = false;
             pic6_0.Click += pic6_0_Click;
             // 
+            // scoreLabel
+            // 
+            scoreLabel.AutoSize = true;
+            scoreLabel.Location = new Point(157, 16);
+            scoreLabel.Name = "scoreLabel";
+            scoreLabel.Size = new Size(61, 20);
+            scoreLabel.TabIndex = 43;
+            scoreLabel.Text = "Score: 0";
+            scoreLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // View
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(240, 396);
+            Controls.Add(scoreLabel);
             Controls.Add(pic6_1);
             Controls.Add(pic6_2);
             Controls.Add(pic6_3);
@@ -579,6 +591,7 @@ namespace BoringTetris
             ((System.ComponentModel.ISupportInitialize)pic6_4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic6_0).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -619,5 +632,6 @@ namespace BoringTetris
         private PictureBox pic6_3;
         private PictureBox pic6_4;
         private PictureBox pic6_0;
+        private Label scoreLabel;
     }
 }
